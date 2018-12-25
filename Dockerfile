@@ -1,10 +1,6 @@
 FROM python:3
-
-WORKDIR /usr/src/app
-
+WORKDIR /var/www
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
-
-COPY . .
-
-CMD [ "python", "./test.py" ]
+COPY . /var/www
+CMD [ "python", "src/main.py" ]
