@@ -1,9 +1,10 @@
 build:
-ifndef entry
 	docker build -t cloped/py-docker .
-else
-	docker build -t cloped/py-docker . --build-arg entry=$(entry)
-endif
 
 run:
-	docker run cloped/py-docker
+ifndef ENTRY
+	@echo "Wrong format!"
+	@echo "Ex: make run ENTRY=src/main.py"
+else
+	docker run -v '$(PWD):/var/www' -e ENTRY=$(ENTRY) cloped/py-docker
+endif

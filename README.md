@@ -6,7 +6,5 @@ Each time you change the code you may rebuild the image and to execute you can r
 
 ### Makefile
 
-- `make build`: Build docker (Need to build when changes the code)
-- `make build entry=src/test.py`: Build docker with a different entry point
-- `make run`: Run docker with python script
-- `make build-run`: Build and run docker with python script
+- `make build`: Build docker
+- `make run ENTRY=<file>`: Run docker with python script selected (no need to build again on change)
